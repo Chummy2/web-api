@@ -12,7 +12,7 @@ To create a account click create account at the bottom of the page and you will 
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/create.png" height="500px" width="500px">
 
-Type in what you would like your username and password to do and click the blue create account button and you will be brought back to the main screen
+Type in what you would like your username and password to be and click the blue create account button and you will be brought back to the main screen
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
 
@@ -23,3 +23,24 @@ After you created your account you can clock in or out by entering your informat
 If you type in your information and click clocked out you will see this screen
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/clockout.png" height="500px" width="500px">
+
+# Admin login and managing accounts
+When you first open the website you will be greeted by this page
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
+
+To create a new admin account click create account on the first page and you will be brought to this page
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/create.png" height="500px" width="500px">
+
+Type in what you would like your username and password to be and click the blue create account button and you will be brought back to the main screen
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
+
+To login enter in the info you just used to create the account and click login and you will be brought to the report page to get all the information about what employees have clocked in or out
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/reports.png" height="500px" width="500px">
+
+To edit a employees account click the blue button called employees and you will be brought to this page
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/employees.png" height="500px" width="500px">
