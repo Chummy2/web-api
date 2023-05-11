@@ -9,7 +9,10 @@
 [Admin login and managing accounts](#Admin-login-and-managing-accounts)<br>
 
 ## Prerequisites
-
+- Raspberry Pi
+- Learn the Command Line
+- Basics of Bash Scripting
+- Vim
 ## Installation and Setup
 Instructions on how to set up Clock I/O on RPi and login/manage from the website
 
