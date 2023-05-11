@@ -1,9 +1,11 @@
-# Installation and Setup
+#Clock I/O
+
+## Installation and Setup
 Instructions on how to set up Clock I/O on RPi and login/manage from the website
-# Set up on RPi
+## Set up on RPi
 fill
 
-# Employee login and creating account
+## Employee login and creating account
 When you first open the website you will be greeted by this page
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
@@ -24,7 +26,7 @@ If you type in your information and click clocked out you will see this screen
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/clockout.png" height="500px" width="500px">
 
-# Admin login and managing accounts
+## Admin login and managing accounts
 When you first open the website you will be greeted by this page
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
