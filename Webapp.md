@@ -17,7 +17,35 @@
 Instructions on how to set up Clock I/O on RPi and login/manage from the website
 
 ## Set up on RPi
-fill
+Install MySQL. On your Raspberry Pi terminal, install MySQL server by issuing the following command from your terminal.
+
+##### Raspberry Pi terminal
+```console
+sudo apt install mariadb-server
+```
+You will then need to secure the database. The script we will put in below will give us a way to set a password for the root account. The following command will start the securing process. Install the following script below on your Raspberry Pi terminal.
+
+##### Raspberry Pi terminal
+```console
+sudo mysql_secure_installation
+```
+
+You should get a message to put a password. You can set the password to whatever you like just dont forget it.
+
+```console
+pi@raspberrypi:~ $ sudo mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none): 
+
+```
 
 ## Employee login and creating account
 When you first open the website you will be greeted by this page
