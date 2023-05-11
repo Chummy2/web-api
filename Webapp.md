@@ -7,6 +7,7 @@
 [Set up on RPi](#Set-up-on-RPi)<br>
 [Employee login and creating account](#Employee-login-and-creating-account)<br>
 [Admin login and managing accounts](#Admin-login-and-managing-accounts)<br>
+[References](#References)<br>
 
 ## Prerequisites
 - Raspberry Pi
@@ -46,6 +47,176 @@ so you should just press enter here.
 Enter current password for root (enter for none): 
 
 ```
+<b>Warning</b>: Verify you install both of these packages before you move on to the next section. Failure to do so will lead to errors of creating the database as well as leaving the database unsecured access. The error message will read as so:
+<br>
+
+##### Raspberry Pi terminal
+
+```mysql
+ERROR 1698 (28000): access denied for user 'localname'@'localhost'
+```
+<br>
+
+Now you need to create the database using the following command
+
+```console
+CREATE DATABASE clockio;
+```
+run the command SHOW DATABASES to list all the available tables you have created thus far. The new database you created should be listed below.
+
+##### Raspberry Pi terminal
+
+```console
+MariaDB [(none)]> CREATE DATABASE exampledb;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> SHOW Databases;
++--------------------+
+| Database           |
++--------------------+
+| clockio            |
++--------------------+
+1 rows in set (0.001 sec)
+
+MariaDB [(none)]> 
+```
+for extra security we will be making a new user as to not use root user for safety reasons. you can call the user what ever you want but for the tutorial I will be naming it guest. you can also make the password with what you would like but I will be putting it as Password1 for this tutorial
+
+##### Raspberry Pi terminal
+
+```console
+CREATE USER 'guest'@'localhost' IDENTIFIED BY 'Password1;
+```
+To give the correct privileges to the user enter the following command and change the name to what you named your user
+
+##### Raspberry Pi terminal
+
+```console
+GRANT ALL PRIVILEGES ON exampledb.* TO 'guest'@'localhost';
+```
+To confirm it enter the following command
+
+##### Raspberry Pi terminal
+
+```console
+FLUSH PRIVILEGES;
+```
+
+To access this new user quit out of the database using ;quit and login using what you named your user 
+
+##### Raspberry Pi terminal
+
+```console
+sudo mysql -u guest -p
+```
+
+It will ask for a password and enter in what you set it too
+To verify run the command below and check to see if it says the username of the correct user
+
+##### Raspberry Pi terminal
+
+```console
+SELECT CURRENT_USER();
+```
+
+To connect to the database enter the following command below
+
+##### Raspberry Pi terminal
+
+```console
+use clockio;
+```
+
+Below are the three tables needed for this website. Copy and paste these exactly how they are
+
+##### Raspberry Pi terminal
+
+```mysql
+CREATE TABLE Admin(
+   id int NOT NULL AUTO_INCREMENT,
+   username varchar(20),
+   password varchar(50),
+   name varchar(50),
+   department int,
+   PRIMARY KEY (id),
+   UNIQUE KEY (username)
+);
+
+```
+
+```mysql
+CREATE TABLE Department(
+   id int NOT NULL AUTO_INCREMENT,
+   name varchar(50),
+   PRIMARY KEY (id)
+);
+
+```
+
+```mysql
+CREATE TABLE Employee(
+   id int NOT NULL AUTO_INCREMENT,
+   name varchar(50),
+   email varchar(50),
+   department int,
+   PRIMARY KEY (id),
+   clockin timestamp DEFAULT CURRENT_TIMESTAMP,
+   clockout timestamp DEFAULT CURRENT_TIMESTAMP,
+   lastupdated timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+```
+
+verify that the tables are correct using the following command
+
+##### Raspberry Pi terminal
+
+```console
+MariaDB [clockio]> DESCRIBE Admin;
++------------+--------------------+------+---------+---------+--------+
+| Field      | Type               | Null | Key     | Default | Extra  |
++------------+---------------------------+---------+---------+--------|
+| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
+| username   | varchar(20)        | YES  | Unique  | NULL    |        | 
+| password   | varchar(50)        | YES  |         | NULL    |        |
+| Department | int                | YES  |         | NULL    |        |
++------------+--------------------+------+---------+---------+--------+
+
+4 rows in set (0.001 sec)
+
+MariaDB [(clockio)]> 
+```
+
+```console
+MariaDB [clockio]> DESCRIBE Department;
++------------+--------------------+------+---------+---------+--------+
+| Field      | Type               | Null | Key     | Default | Extra  |
++------------+---------------------------+---------+---------+--------|
+| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
+| name       | varchar(50)        | YES  |         | NULL    |        | 
++------------+--------------------+------+---------+---------+--------+
+
+2 rows in set (0.001 sec)
+
+MariaDB [(clockio)]> 
+```
+
+```console
+MariaDB [clockio]> DESCRIBE Employee;
++------------+--------------------+------+---------+---------+--------+
+| Field      | Type               | Null | Key     | Default | Extra  |
++------------+---------------------------+---------+---------+--------|
+| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
+| name       | varchar(20)        | YES  |         | NULL    |        | 
+| email      | varchar(50)        | YES  |         | NULL    |        |
+| Department | int                | YES  |         | NULL    |        |
++------------+--------------------+------+---------+---------+--------+
+
+1 rows in set (0.001 sec)
+
+MariaDB [(clockio)]> 
+```
+
 
 ## Employee login and creating account
 When you first open the website you will be greeted by this page
@@ -92,3 +263,6 @@ To edit a employees account click the blue button called employees and you will 
 You should see a list of all accounts that have been created. If you want to delete a account click the blue button called delete. If you would like to edit a account click the blue button called edit and you will be brought to this page. then just replace what you need to change and then hit save.
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/edit.png" height="500px" width="500px">
+
+### References
+- https://gitlab.com/banderaSICTC/sictcwebclass/-/tree/main
