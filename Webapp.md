@@ -1,7 +1,18 @@
 # Clock I/O
 
+## Table of Contents
+ 
+[Prerequisites](#Prerequisites)<br>
+[Installation and Setup](#Installation-and-Setup)<br>
+[Set up on RPi](#Set-up-on-RPi)<br>
+[Employee login and creating account](#Employee-login-and-creating-account)<br>
+[Admin login and managing accounts](#Admin-login-and-managing-accounts)<br>
+
+## Prerequisites
+
 ## Installation and Setup
 Instructions on how to set up Clock I/O on RPi and login/manage from the website
+
 ## Set up on RPi
 fill
 
