@@ -44,3 +44,7 @@ To login enter in the info you just used to create the account and click login a
 To edit a employees account click the blue button called employees and you will be brought to this page
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/employees.png" height="500px" width="500px">
+
+You should see a list of all accounts that have been created. If you want to delete a account click the blue button called delete. If you would like to edit a account click the blue button called edit and you will be brought to this page. then just replace what you need to change and then hit save.
+
+<img src="https://github.com/Chummy2/web-api/blob/main/img/edit.png" height="500px" width="500px">
