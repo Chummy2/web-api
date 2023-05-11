@@ -5,6 +5,7 @@ fill
 
 # Employee login and creating account
 When you first open the website you will be greeted by this page
+
 <img src="https://github.com/Chummy2/web-api/blob/main/img/login.png" height="500px" width="500px">
 
 To create a account click create account at the bottom of the page and you will be brought to this page
