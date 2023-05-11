@@ -1,4 +1,4 @@
-#Clock I/O
+# Clock I/O
 
 ## Installation and Setup
 Instructions on how to set up Clock I/O on RPi and login/manage from the website
