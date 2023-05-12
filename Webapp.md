@@ -127,11 +127,21 @@ To connect to the database enter the following command below
 use clockio;
 ```
 
-Below are the three tables needed for this website. Copy and paste these exactly how they are
+Below are the four tables needed for this website. Copy and paste these exactly how they are
 
 <img src="https://github.com/Chummy2/web-api/blob/main/img/clockio.png" height="500px" width="500px">
 
 ##### Raspberry Pi terminal
+
+```mysql
+CREATE TABLE EmployeeTime(
+   accountID int,
+   name varchar(30),
+   ClockIn timestamp DEFAULT CURRENT_TIMESTAMP,
+   CLockOut timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+```
 
 ```mysql
 CREATE TABLE Admin(
@@ -174,16 +184,32 @@ verify that the tables are correct using the following command
 ##### Raspberry Pi terminal
 
 ```console
+MariaDB [clockio]> DESCRIBE EmployeeTime;
++------------+--------------------+------+---------+---------+-------------+
+| Field      | Type               | Null | Key     | Default | Extra       |
++------------+---------------------------+---------+---------+-------------|
+| accountID  | int (11)           | YES  |         | NULL    |             |
+| Name       | varchar(20)        | YES  |         | NULL    |             | 
+| CLockIn    | varchar(50)        | YES  |         | NULL    |             |
+| ClockOut   | varchar(50)        | YES  |         | NULL    |             |
++------------+--------------------+------+---------+---------+-------------+
+
+4 rows in set (0.001 sec)
+
+MariaDB [(clockio)]> 
+```
+
+```console
 MariaDB [clockio]> DESCRIBE Admin;
-+------------+--------------------+------+---------+---------+----------------------+
-| Field      | Type               | Null | Key     | Default | Extra                |
-+------------+---------------------------+---------+---------+----------------------|
-| id         | int (11)           | NO   | PRI     | NULL    | auto_increment       |
-| username   | varchar(20)        | YES  | UNI     | NULL    |                      | 
-| password   | varchar(50)        | YES  |         | NULL    |                      |
-| name       | varchar(50)        | YES  |         | NULL    |                      |
-| Department | int                | YES  |         | NULL    |                      |
-+------------+--------------------+------+---------+---------+----------------------+
++------------+--------------------+------+---------+---------+----------------+
+| Field      | Type               | Null | Key     | Default | Extra          |
++------------+---------------------------+---------+---------+----------------|
+| id         | int (11)           | NO   | PRI     | NULL    | auto_increment |
+| username   | varchar(20)        | YES  | UNI     | NULL    |                | 
+| password   | varchar(50)        | YES  |         | NULL    |                |
+| name       | varchar(50)        | YES  |         | NULL    |                |
+| Department | int                | YES  |         | NULL    |                |
++------------+--------------------+------+---------+---------+----------------+
 
 5 rows in set (0.001 sec)
 
