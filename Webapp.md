@@ -175,28 +175,29 @@ verify that the tables are correct using the following command
 
 ```console
 MariaDB [clockio]> DESCRIBE Admin;
-+------------+--------------------+------+---------+---------+--------+
-| Field      | Type               | Null | Key     | Default | Extra  |
-+------------+---------------------------+---------+---------+--------|
-| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
-| username   | varchar(20)        | YES  | Unique  | NULL    |        | 
-| password   | varchar(50)        | YES  |         | NULL    |        |
-| Department | int                | YES  |         | NULL    |        |
-+------------+--------------------+------+---------+---------+--------+
++------------+--------------------+------+---------+---------+----------------------+
+| Field      | Type               | Null | Key     | Default | Extra                |
++------------+---------------------------+---------+---------+----------------------|
+| id         | int (11)           | NO   | PRI     | NULL    | auto_increment       |
+| username   | varchar(20)        | YES  | UNI     | NULL    |                      | 
+| password   | varchar(50)        | YES  |         | NULL    |                      |
+| name       | varchar(50)        | YES  |         | NULL    |                      |
+| Department | int                | YES  |         | NULL    |                      |
++------------+--------------------+------+---------+---------+----------------------+
 
-4 rows in set (0.001 sec)
+5 rows in set (0.001 sec)
 
 MariaDB [(clockio)]> 
 ```
 
 ```console
 MariaDB [clockio]> DESCRIBE Department;
-+------------+--------------------+------+---------+---------+--------+
-| Field      | Type               | Null | Key     | Default | Extra  |
-+------------+---------------------------+---------+---------+--------|
-| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
-| name       | varchar(50)        | YES  |         | NULL    |        | 
-+------------+--------------------+------+---------+---------+--------+
++------------+--------------------+------+---------+---------+---------------------+
+| Field      | Type               | Null | Key     | Default | Extra               |
++------------+---------------------------+---------+---------+---------------------|
+| Id         | int (11)           | NO   | PRI     | NULL    | auto_increment      |
+| name       | varchar(50)        | YES  |         | NULL    |                     | 
++------------+--------------------+------+---------+---------+---------------------+
 
 2 rows in set (0.001 sec)
 
@@ -205,14 +206,17 @@ MariaDB [(clockio)]>
 
 ```console
 MariaDB [clockio]> DESCRIBE Employee;
-+------------+--------------------+------+---------+---------+--------+
-| Field      | Type               | Null | Key     | Default | Extra  |
-+------------+---------------------------+---------+---------+--------|
-| Id         | int AUTO_INCREMENT | NO   | Primary |         |        |
-| name       | varchar(20)        | YES  |         | NULL    |        | 
-| email      | varchar(50)        | YES  |         | NULL    |        |
-| Department | int                | YES  |         | NULL    |        |
-+------------+--------------------+------+---------+---------+--------+
++-------------+--------------------+------+---------+----------------------+--------------------+
+| Field       | Type               | Null | Key     | Default              | Extra              |
++-------------+--------------------+------+---------+----------------------+--------------------|
+| Id          | int (11)           | NO   | PRI     | NULL                 | auto_increment     |
+| name        | varchar(50)        | YES  |         | NULL                 |                    | 
+| email       | varchar(50)        | YES  |         | NULL                 |                    |
+| Department  | int (11)           | YES  |         | NULL                 |                    |
+| clockin     | timestamp          | NO   |         | current_timestamp () |                    |
+| clockout    | timestamp          | NO   |         | current_timestamp () |                    |
+| lastupdated | timestamp          | NO   |         | current_timestamp () |                    |
++------------+---------------------+------+---------+----------------------+--------------------+
 
 1 rows in set (0.001 sec)
 
