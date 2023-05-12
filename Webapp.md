@@ -129,6 +129,8 @@ use clockio;
 
 Below are the three tables needed for this website. Copy and paste these exactly how they are
 
+<img src="https://github.com/Chummy2/web-api/blob/main/img/clockio.png" height="500px" width="500px">
+
 ##### Raspberry Pi terminal
 
 ```mysql
